@@ -1,0 +1,9 @@
+Package: PseudoMeta
+Title: A framework for conducting pseudotime-related gene analysis
+Version: 1.0.0
+Authors@R: person("Yanwu", email = "Niceecake@outlook.com", role = c("aut", "cre"))
+Description: The Pseudotime object is a computational framework that contains both cell information and pseudotime information. It comprises a high-variance gene matrix (VarMatrix), which is derived from high-variance genes in a Seurat object (selectable using the 'Varnum' variable in the CreatePseudoMeta function), along with cell composition. Pseudotime information from the cells in the Seurat object is integrated into the metadata of the CDS file. This integration enables the use of hypothesis testing methods such as Kendall, Page, Mann-Kendall, Spearman, etc., to identify the probability of a gene's association with pseudotime. Subsequently, visualizations can be generated based on these associations.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
