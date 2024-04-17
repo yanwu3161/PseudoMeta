@@ -1,5 +1,5 @@
 CreatePseudometa <- function(SeuratObj, CDSObj, Varnum = 1000, origindata = FALSE, PCA = FALSE) {
-  required_packages <- c("Seurat", "dplyr", "ggplot2", "viridis")
+  required_packages <- c("Seurat", "dplyr", "ggplot2", "viridis","Kendall")
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
       stop(paste("Package_", pkg, "_not installed or loaded. Please install it to use PseudoMeta."))
