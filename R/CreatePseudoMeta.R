@@ -1,4 +1,4 @@
-CreatePseudoMeta <- function(SeuratObj, CDSObj, Varnum = 1000, origindata = FALSE, PCA = FALSE) {
+CreatePseudometa <- function(SeuratObj, CDSObj, Varnum = 1000, origindata = FALSE, PCA = FALSE) {
   required_packages <- c("Seurat", "dplyr", "ggplot2", "viridis")
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
