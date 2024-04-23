@@ -1,4 +1,4 @@
-function (TrendMatrix, geneNames, min.cell.expression, pb) 
+mann_kendall_test <- function (TrendMatrix, geneNames, min.cell.expression, pb) 
 {
   MannKendall_results <- data.frame(n = numeric(length(geneNames)), 
                                     p.value = numeric(length(geneNames)), monotony = character(length(geneNames)), 
@@ -14,12 +14,12 @@ function (TrendMatrix, geneNames, min.cell.expression, pb)
     setTxtProgressBar(pb, i)
     gene_data <- TrendMatrix[geneNames[i], ]
     non_zero_data_indices <- which(gene_data != 0)
+    gene_data <- gene_data[non_zero_data_indices]
     if (length(non_zero_data_indices) >= min.cell.expression) {
       mk_result <- Kendall::MannKendall(gene_data)
       MannKendall_results[geneNames[i], "p.value"] <- abs(mk_result$tau)
-      MannKendall_results[geneNames[i], "monotony"] <- ifelse(mk_result$tau > 
-                                                                0, "positive", "negative")
-      MannKendall_results[geneNames[i], "n"] <- length(non_zero_data_indices)
+      MannKendall_results[geneNames[i], "monotony"] <- ifelse(mk_result$tau > 0, "positive", "negative")
+      MannKendall_results[geneNames[i], "n"] <- length(gene_data)
       MannKendall_results[geneNames[i], "S"] <- mk_result$S
       MannKendall_results[geneNames[i], "varS"] <- mk_result$varS
     }
