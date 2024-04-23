@@ -17,7 +17,7 @@ page_test <- function(TrendMatrix, geneNames, min.cell.expression, pb) {
       sigma_L <- sqrt(n * (n + 1)^2 * (2 * n + 1) / 72)
       Z <- (L - mu_L) / sigma_L
       
-      p_value <- 2 * pnorm(-abs(Z))  # two-sided test
+      p_value <- 2 * pnorm(-abs(Z))
       
       Page_results[geneNames[i], "L"] <- L
       Page_results[geneNames[i], "n"] <- n
