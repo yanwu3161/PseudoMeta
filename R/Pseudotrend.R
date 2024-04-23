@@ -8,6 +8,7 @@ Pseudotrend <- function(pseudoMetaObject, method = "Spearman", min.cell.expressi
   pb <- txtProgressBar(min = 0, max = length(geneNames), style = 3)
   
   method_function_map <- list(
+    
     "Kendall" = function() kendall_test(TrendMatrix, geneNames, min.cell.expression, pb),
     "Spearman" = function() spearman_test(TrendMatrix, geneNames, min.cell.expression, pb),
     "Mann_Kendall" = function() mann_kendall_test(TrendMatrix, geneNames, min.cell.expression, pb),
