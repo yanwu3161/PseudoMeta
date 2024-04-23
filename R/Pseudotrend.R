@@ -13,6 +13,7 @@ Pseudotrend <- function(pseudoMetaObject, method = "Spearman", min.cell.expressi
     "Spearman" = function() spearman_test(TrendMatrix, geneNames, min.cell.expression, pb),
     "Mann_Kendall" = function() mann_kendall_test(TrendMatrix, geneNames, min.cell.expression, pb),
     "Page" = function() page_test(TrendMatrix, geneNames, min.cell.expression, pb)
+    
   )
   
   if (!method %in% names(method_function_map)) {
