@@ -9,6 +9,7 @@ page_test <- function(TrendMatrix, geneNames, min.cell.expression, pb) {
     non_zero_data_indices <- which(gene_data != 0)
     
     if (length(non_zero_data_indices) >= min.cell.expression) {
+      gene_data <- gene_data[non_zero_data_indices]
       n <- length(gene_data)
       ranks <- rank(gene_data)
       
