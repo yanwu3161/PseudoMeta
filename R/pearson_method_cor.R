@@ -14,7 +14,7 @@ pearson_method_cor <- function(pseudoMetaObject, method_to_cor = "ALL") {
   for (i in 1:length(methods)) {
     for (j in i:length(methods)) {
       if (i == j) {
-        method_corr_results[i, j] <- 0
+        method_corr_results[i, j] <- 1
       } else {
         method_corr_results[i, j] <- cor(cor_data[[methods[i]]], cor_data[[methods[j]]], use = "complete.obs")
         method_corr_results[j, i] <- method_corr_results[i, j]
