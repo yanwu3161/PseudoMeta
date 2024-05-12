@@ -1,4 +1,4 @@
-Pseudometa_plot <- function(PseudometaObj, plot = "method_cor", method = "Spearman") {
+Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spearman") {
   
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     stop("Package 'ggplot2' is not installed. Please install it using install.packages('ggplot2').")
