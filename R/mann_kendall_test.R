@@ -19,7 +19,7 @@ mann_kendall_test <- function (TrendMatrix, geneNames, min.cell.expression, pb)
       mk_result <- Kendall::MannKendall(gene_data)
       MannKendall_results[geneNames[i], "p.value"] <- abs(mk_result$tau)
       MannKendall_results[geneNames[i], "monotony"] <- ifelse(mk_result$tau > 0, "positive", "negative")
-      MannKendall_results[geneNames[i], "n"] <- length(gene_data)
+      MannKendall_results[geneNames[i], "n"] <- length(gene_data) / ncol(TrendMatrix)
       MannKendall_results[geneNames[i], "S"] <- mk_result$S
       MannKendall_results[geneNames[i], "varS"] <- mk_result$varS
     }

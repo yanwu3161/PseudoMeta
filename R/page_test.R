@@ -21,7 +21,7 @@ page_test <- function(TrendMatrix, geneNames, min.cell.expression, pb) {
       p_value <- 2 * pnorm(-abs(Z))
       
       Page_results[geneNames[i], "L"] <- L
-      Page_results[geneNames[i], "n"] <- n
+      Page_results[geneNames[i], "n"] <- n / ncol(TrendMatrix)
       Page_results[geneNames[i], "p.value"] <- p_value
       Page_results[geneNames[i], "monotony"] <- ifelse(Z > 0, "positive", "negative")
       Page_results[geneNames[i], "Z"] <- Z

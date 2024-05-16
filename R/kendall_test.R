@@ -22,7 +22,7 @@ kendall_test <- function(TrendMatrix, geneNames, min.cell.expression, pb) {
       
       Kendall_results[geneNames[i], "p.value"] <- abs(kendall_result$tau)
       Kendall_results[geneNames[i], "monotony"] <- ifelse(kendall_result$tau > 0, "positive", "negative")
-      Kendall_results[geneNames[i], "n"] <- length(gene_data)
+      Kendall_results[geneNames[i], "n"] <- length(gene_data) / ncol(TrendMatrix)
     } else {
       Kendall_results[geneNames[i], "p.value"] <- NA
       Kendall_results[geneNames[i], "monotony"] <- "NA"

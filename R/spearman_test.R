@@ -19,7 +19,7 @@ spearman_test <- function(TrendMatrix, geneNames, min.cell.expression, pb) {
         rho <- 1 - (6 * sum_d_i_squared / (n * (n^2 - 1)))
         Spearman_results[geneNames[i], "p.value"] <- abs(rho)
         Spearman_results[geneNames[i], "monotony"] <- ifelse(rho > 0, "positive", "negative")
-        Spearman_results[geneNames[i], "n"] <- n
+        Spearman_results[geneNames[i], "n"] <- n / ncol(TrendMatrix)
       } else {
         Spearman_results[geneNames[i], "p.value"] <- NA
         Spearman_results[geneNames[i], "monotony"] <- "NA"
