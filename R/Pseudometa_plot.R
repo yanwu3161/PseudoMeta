@@ -1,7 +1,8 @@
 Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spearman", 
                             title_size = 14, x_axis_text_size = 12, y_axis_text_size = 12, 
                             x_axis_title_size = 14, y_axis_title_size = 14, 
-                            legend_title_size = 12, legend_text_size = 10, legend_point_size = 3) {
+                            legend_title_size = 12, legend_text_size = 10, 
+                            legend_point_size = 3, point_size = 3) {
   
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     stop("Package 'ggplot2' is not installed. Please install it using install.packages('ggplot2').")
@@ -26,7 +27,7 @@ Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spea
     results_df$x_position <- ifelse(results_df$monotony == "positive", results_df$n, -results_df$n)
     
     volcano_plot <- ggplot2::ggplot(results_df, ggplot2::aes(x = x_position, y = p.value, color = monotony)) +
-      ggplot2::geom_point(size = legend_point_size) +
+      ggplot2::geom_point(size = point_size) +
       ggplot2::scale_color_manual(values = c("positive" = "red", "negative" = "blue")) +
       ggplot2::labs(title = paste("Gene Plot of", method, "Method"),
                     x = "Proportion of non-zero expression",
@@ -46,7 +47,8 @@ Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spea
         axis.title.y = ggplot2::element_text(size = y_axis_title_size),
         plot.title = ggplot2::element_text(size = title_size),
         legend.title = ggplot2::element_text(size = legend_title_size),
-        legend.text = ggplot2::element_text(size = legend_text_size)
+        legend.text = ggplot2::element_text(size = legend_text_size),
+        legend.key = ggplot2::element_rect(size = legend_point_size)
       )
     
     print(volcano_plot)
@@ -54,4 +56,3 @@ Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spea
     stop("Unsupported plot type. Available types: 'method_cor', 'Gene_Volcano'.")
   }
 }
-
