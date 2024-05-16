@@ -31,8 +31,8 @@ Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spea
     volcano_plot <- ggplot2::ggplot(results_df, ggplot2::aes(x = x_position, y = p.value, color = monotony)) +
       ggplot2::geom_point() +
       ggplot2::scale_color_manual(values = c("positive" = "red", "negative" = "blue")) +
-      ggplot2::labs(title = paste("Volcano Plot for", method, "Method"),
-                    x = "Count of Non-zero Expressions (n), direction by monotony",
+      ggplot2::labs(title = paste("Gene Plot of", method, "Method"),
+                    x = "Proportion of non-zero expression",
                     y = "P-value") +
       ggplot2::theme_minimal() +
       ggplot2::xlim(min(results_df$x_position) - 10, max(results_df$x_position) + 10) +
