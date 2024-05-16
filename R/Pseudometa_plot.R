@@ -1,4 +1,4 @@
-Pseudometa_plot <- function(PseudometaObj, plot = "method_cor", method = "Spearman", 
+Pseudometa_plot <- function(PseudometaObj, plot = "Gene_Volcano", method = "Spearman", 
                             title_size = 14, x_axis_text_size = 12, y_axis_text_size = 12, 
                             x_axis_title_size = 14, y_axis_title_size = 14, 
                             legend_title_size = 12, legend_text_size = 10, legend_point_size = 3) {
